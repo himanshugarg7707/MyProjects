@@ -93,25 +93,54 @@ if (dblBtn) {
     };
 }
 
-// ===== SLIDER =====
+// ===== SLIDER: Mouse & Touch =====
 let slider = document.querySelector("#hoverDiv");
 let thumb = document.querySelector("#thumb");
 let drag = false;
 let startX = 0;
+
+function updateThumbPosition(x) {
+    const max = slider.offsetWidth - thumb.offsetWidth - 5;
+    x = Math.max(0, Math.min(x, max));
+    thumb.style.left = x + "px";
+    return x;
+}
+
+// Mouse events
 thumb.onmousedown = (e) => {
     drag = true;
     startX = e.clientX - thumb.offsetLeft;
+    document.body.style.userSelect = "none";
 };
 document.onmousemove = (e) => {
     if (!drag) return;
-    let x = e.clientX - startX;
-    let max = slider.offsetWidth - thumb.offsetWidth - 5;
-    x = Math.max(0, Math.min(x, max));
-    thumb.style.left = x + "px";
+    updateThumbPosition(e.clientX - startX);
 };
 document.onmouseup = () => {
     if (!drag) return;
-    let max = slider.offsetWidth - thumb.offsetWidth - 5;
+    const max = slider.offsetWidth - thumb.offsetWidth - 5;
+    if (thumb.offsetLeft >= max - 2) {
+        window.open("https://himanshugarg7707.github.io/pdfMerger/", "_blank");
+    }
+    thumb.style.left = "5px";
+    drag = false;
+    document.body.style.userSelect = "";
+};
+
+// Touch events
+thumb.ontouchstart = (e) => {
+    drag = true;
+    if (e.touches.length === 1) {
+        startX = e.touches[0].clientX - thumb.offsetLeft;
+    }
+};
+document.ontouchmove = (e) => {
+    if (!drag || e.touches.length !== 1) return;
+    updateThumbPosition(e.touches[0].clientX - startX);
+};
+document.ontouchend = () => {
+    if (!drag) return;
+    const max = slider.offsetWidth - thumb.offsetWidth - 5;
     if (thumb.offsetLeft >= max - 2) {
         window.open("https://himanshugarg7707.github.io/pdfMerger/", "_blank");
     }
