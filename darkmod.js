@@ -85,7 +85,7 @@ function render() {
 window.onload = render;
 
 
-// ===== ADD =====
+// ===== ADD NEW =====
 addBtn.onclick = () => {
     let link = input.value.trim();
     let action = actionSelect.value;
@@ -105,6 +105,25 @@ addBtn.onclick = () => {
     render();
     input.value = "";
 };
+
+
+// ===== YOUR ORIGINAL STATIC BUTTONS =====
+
+// Single click → Todo List
+let singleBtn = document.querySelector("#singleClick");
+if (singleBtn) {
+    singleBtn.onclick = () => {
+        window.open("https://himanshugarg7707.github.io/Todolist/", "_blank");
+    };
+}
+
+// Double click → PDF Merger
+let dblBtn = document.querySelector("#doubleClick");
+if (dblBtn) {
+    dblBtn.ondblclick = () => {
+        window.open("https://himanshugarg7707.github.io/pdfMerger/", "_blank");
+    };
+}
 
 
 // ===== SLIDER =====
@@ -134,8 +153,9 @@ document.onmouseup = () => {
 
     let max = slider.offsetWidth - thumb.offsetWidth - 5;
 
+    // 👉 PDF MERGER (your original link)
     if (thumb.offsetLeft >= max - 2) {
-        window.open("https://google.com", "_blank");
+        window.open("https://himanshugarg7707.github.io/pdfMerger/", "_blank");
     }
 
     thumb.style.left = "5px";
