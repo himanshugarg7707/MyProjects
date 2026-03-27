@@ -3,63 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Theme Designer</title>
+    <title>Smart Launcher</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="darkmod.css">
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 
 <body class="dark">
 
-    <div class="container">
+<div class="container">
 
-        <h1>Theme Designer</h1>
+    <h1>Smart Launcher</h1>
 
-        <button id="Mode">Toggle Theme</button>
+    <button id="Mode">Toggle Theme</button>
 
-        <!-- Dropdown -->
-        <div class="dropdown">
-            <select>
-                <option>Account</option>
-                <option>Settings</option>
-                <option>Link Device</option>
-                <option>Customer Support</option>
-            </select>
-        </div>
+    <!-- INPUT -->
+    <div class="github">
+        <input id="githubLink" type="text" placeholder="Paste link">
 
-        <!-- Search -->
-        <!-- <div class="input">
-            <input id="search1" type="search" placeholder="Search for materials">
-        </div> -->
+        <select id="actionType">
+            <option value="click">Click</option>
+            <option value="dblclick">Double Click</option>
+            <option value="hover">Hover</option>
+        </select>
 
-        <!-- GitHub Input + Action -->
-        <div class="github">
-            <input id="githubLink" type="text" placeholder="Paste GitHub Profile Link">
-            
-            <select id="actionType">
-                <option value="click">Click</option>
-                <option value="dblclick">Double Click</option>
-                <option value="hover">Hover</option>
-            </select>
-
-            <button id="addGit">Add</button>
-        </div>
-
-        <!-- Saved Links -->
-        <div id="savedLinks"></div>
-
-        <!-- Buttons -->
-        <div class="actions">
-            <button id="singleClick">To Do List</button>
-            <button id="doubleClick">PDF Merge</button>
-        </div>
-
-        <!-- Slider -->
-        <div id="hoverDiv">
-            <span>Slide for Assign✅→</span>
-            <div id="thumb"></div>
-        </div>
-
+        <button id="addGit">Add</button>
     </div>
 
-    <script src="darkmod.js"></script>
+    <!-- SAVED -->
+    <div id="savedLinks"></div>
+
+    <!-- STATIC BUTTONS -->
+    <div class="actions">
+        <button id="singleClick">ToDo</button>
+        <button id="doubleClick">PDF</button>
+    </div>
+
+    <!-- SLIDER -->
+    <div id="hoverDiv">
+        <span>Slide →</span>
+        <div id="thumb"></div>
+    </div>
+
+</div>
+
+<script src="darkmod.js"></script>
 </body>
 </html>
